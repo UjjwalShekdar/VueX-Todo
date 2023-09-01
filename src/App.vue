@@ -1,17 +1,20 @@
 <template>
   <div id="app">
    <h1>Todo</h1>
-   <todo-list />
+   <todos-list />
+   <todo-form />
   </div>
 </template>
 
 <script>
-import TodosList from './components/TodosList';
+import TodosList from './components/TodosList.vue';
+import TodoForm from './components/TodoForm.vue';
 
 export default {
   name: "app",
   components: {
-    TodosList
+    TodosList,
+    TodoForm
   }
 };
 </script>

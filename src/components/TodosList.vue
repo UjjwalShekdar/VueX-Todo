@@ -1,9 +1,17 @@
 <template>
-<div>Todo list</div>
+<div>
+    <todo v-for="(todo, index) in $store.state.todos" :key="index" :todo="todo"/>
+</div>
 </template>
 
 <script>
-export default {};
+import Todo from './Todo';
+
+export default {
+    components: {
+        Todo
+    }
+};
 </script>
 
 <style>
