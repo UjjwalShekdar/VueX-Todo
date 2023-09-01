@@ -1,7 +1,7 @@
 <template>
     <div>
         <input type="text" v-model="newTodoItem">
-        <button type="submit">Submit</button>
+        <button type="submit" @click="addNewTodoItem">Submit</button>
     </div>
 </template>
 
@@ -10,6 +10,12 @@ export default {
     data(){
         return {
             newTodoItem: ""
+        }
+    },
+    methods: {
+        addNewTodoItem(){
+            this.$store.dispatch('addNewTodo', this.newTodoItem);
+            this.newTodoItem = '';
         }
     }
 }
