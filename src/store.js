@@ -7,32 +7,37 @@ export default new Vuex.Store({
     state: {
        todos: [
         {
-            title: "todo item a",
+            title: "a",
             completed: false
         },
         {
-            title: "todo item b",
+            title: "b",
             completed: false
         }
        ]
     },
 
     getters: {
+       completedTodos(state) {
+        return state.todos.filter(todo => {
+            return todo.completed === true;
+        }).length;
+       },
 
+       pendingTodos(state) {
+        return state.todos.filter(todo => {
+            return todo.completed != true;
+        }).length;
+       }
     },
 
     mutations: {
-        NEW_TODO(state, todoItem) {
-            // Check if the todo item already exists
-            const existingTodo = state.todos.find(todo => todo.title === todoItem);
-        
-            if (!existingTodo) {
-              state.todos.push({
-                title: todoItem,
-                completed: false
-              });
-            }
-          },
+       NEW_TODO(state, todoItem) {
+        state.todos.push({
+            title: todoItem,
+            completed: false
+        });
+       },
 
        DELETE_TODO(state, todoItem){
          let index = state.todos.indexOf(todoItem);

@@ -1,12 +1,15 @@
 <template>
   <div id="app">
    <h1>Todo</h1>
+   <h3>Completed: {{ completedTodos }}</h3>
+   <h3>Pending: {{ pendingTodos }}</h3>
    <todos-list />
    <todo-form />
   </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
 import TodosList from './components/TodosList.vue';
 import TodoForm from './components/TodoForm.vue';
 
@@ -15,6 +18,13 @@ export default {
   components: {
     TodosList,
     TodoForm
+  },
+
+  computed: {
+    ...mapGetters({
+      completedTodos: "completedTodos",
+      pendingTodos: "pendingTodos"
+    })
   }
 };
 </script>
