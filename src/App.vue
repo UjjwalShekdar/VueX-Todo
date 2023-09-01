@@ -1,12 +1,20 @@
 <template>
   <div id="app">
-    <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </nav>
-    <router-view/>
+   <h1>Todo</h1>
+   <todo-list />
   </div>
 </template>
+
+<script>
+import TodosList from './components/TodosList';
+
+export default {
+  name: "app",
+  components: {
+    TodosList
+  }
+};
+</script>
 
 <style>
 #app {
